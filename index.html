@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FishOpenSource</title>
+<style>
+    body {
+        background-color: #111;
+        color: white;
+        font-family: Consolas, monospace;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    hr {
+        border: none;
+        border-top: 2px solid #555;
+        margin: 10px 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 40px;
+        font-size: 20px;
+    }
+
+    .logo {
+        color: white;
+        font-weight: bold;
+    }
+
+    .navlink {
+        color: #33aaff;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .navlink:hover {
+        text-decoration: underline;
+    }
+
+    .content {
+        margin-top: 40px;
+        font-size: 18px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+    <hr>
+    <div class="navbar">
+        <div class="logo">🐟 <span id="fishText">FishOpenSource</span></div>
+        <a class="navlink" href="giantsource.html">GiantsourceEditor</a>
+        <a class="navlink" href="https://github.com/loryfishgit/" target="_blank">Our GitHub</a>
+    </div>
+    <hr>
+
+    <div class="content">
+        <p>
+            FishOpenSource is an OpenSource Project made by loryfish in November 2025 to make programs, tools, and even remakes of Windows commands but... OpenSource.
+        </p>
+
+        <p>
+            GiantsourceEditor is a super great file editor, fully OpenSource, made in Batch.<br>
+            Wanna download GSE?<br>
+            Click on <b>"GiantsourceEditor"</b> on the mainbar (with the logo of FishOpenSource).
+        </p>
+    </div>
+
+    <hr>
+
+<script>
+const textEl = document.getElementById("fishText");
+const originalText = "FishOpenSource";
+let i = 0;
+let deleting = false;
+
+function animateText() {
+    if (!deleting && i < originalText.length) {
+        i++;
+    } else if (deleting && i > 0) {
+        i--;
+    } else if (!deleting && i === originalText.length) {
+        setTimeout(() => deleting = true, 1000);
+    } else if (deleting && i === 0) {
+        deleting = false;
+    }
+
+    textEl.textContent = originalText.substring(0, i);
+}
+
+setInterval(animateText, 1000);
+</script>
+</body>
+</html>
